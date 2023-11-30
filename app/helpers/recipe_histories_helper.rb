@@ -1,0 +1,2 @@
+module RecipeHistoriesHelper
+end

@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <h2><%= "Recipe History" %></h2>
+  
+  <% @recipe_history.recipes.each do |recipe| %>
+    <h3><%= recipe.title %></h3>
+    <p><strong>Ingredients:</strong> <%= recipe.ingredients %></p>
+    <p><strong>Instructions:</strong> <%= recipe.instructions %></p>
+
+    <%= link_to "Edit this recipe", edit_recipe_history_recipe_path(@recipe_history, recipe) %> |
+    <%= button_to "Delete this recipe", [@recipe_history, recipe], method: :delete %>
+  <% end %>
+
+  <%= link_to "Edit this recipe history", edit_recipe_history_path(@recipe_history) %> |
+  <%= link_to "Back to recipe histories", recipe_histories_path %>
+  
+  <%= button_to "Delete this recipe history", @recipe_history, method: :delete %>
+</div>

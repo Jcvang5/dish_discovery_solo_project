@@ -1,31 +1,32 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe_history
   before_action :set_recipe, only: %i[ show edit update destroy ]
 
-  # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.all
   end
 
-  # GET /recipes/1 or /recipes/1.json
   def show
   end
 
-  # GET /recipes/new
   def new
     @recipe = Recipe.new
   end
 
-  # GET /recipes/1/edit
   def edit
   end
+  
 
-  # POST /recipes or /recipes.json
+
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = @recipe_history.recipes.build(recipe_params)
+
+    # find the recipe_history through params, similar to comments controller
+    # then create @receipe through the association @receipe_history.receipe.create(receipe_params)
 
     respond_to do |format|
       if @recipe.save
-        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully created." }
+        format.html { redirect_to recipe_history_recipe_path(@recipe_history, @recipe), notice: "Recipe was successfully created." }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,11 +35,10 @@ class RecipesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /recipes/1 or /recipes/1.json
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: "Recipe was successfully updated." }
+        format.html { redirect_to recipe_history_recipe_path(@recipe_history, @recipe), notice: "Recipe was successfully updated." }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,24 +47,25 @@ class RecipesController < ApplicationController
     end
   end
 
-  # DELETE /recipes/1 or /recipes/1.json
   def destroy
     @recipe.destroy!
 
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: "Recipe was successfully deleted." }
+      format.html { redirect_to recipe_history_recipes_path(@recipe_history, @recipe), notice: "Recipe was successfully deleted." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    def set_recipe_history
+      @recipe_history = RecipeHistory.find(params[:recipe_history_id])
+    end
+
     def recipe_params
       params.require(:recipe).permit(:title, :instructions, :ingredients)
     end
-end
+  end
