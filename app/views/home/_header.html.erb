@@ -1,12 +1,12 @@
 <div style="display: flex; justify-content: space-between; align-items: center; background-color: black; padding: 10px;">
-  <%= link_to 'Dishcovery', root_path, class: "btn btn-light"%> 
+  <%= link_to 'Dishcovery', root_path, class: "head"%> 
   <% if user_signed_in? %>
-    <%= link_to "My Recipes", recipe_histories_path, class: "btn btn-light"%> 
+    <%= link_to "My Recipes", recipe_histories_path, class: "head"%> 
   <% end %>
   <% unless user_signed_in? %>
-    <%= link_to "Sign up!", new_user_registration_path, class: "btn btn-light"%>
+    <%= link_to "Sign up!", new_user_registration_path, class: "head"%>
   <% else %>
-    <%= link_to 'Profile', edit_user_registration_path, class:"btn btn-light" %>
+    <%= link_to 'Profile', edit_user_registration_path, class:"head" %>
   <% end %>
 
   <div style="text-align: right; color: white;">
