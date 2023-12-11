@@ -1,5 +1,5 @@
 <body class="bodyBackground">
-<h1>Recipes</h1>
+<h1>Culinary Chronicles</h1>
 <head><%= stylesheet_link_tag 'style' %></head>
 <div id="recipes">
   <% @recipes.each do |recipe| %>
@@ -11,7 +11,7 @@
   <% end %>
 </div>
 
-<%= link_to "New recipe", new_recipe_history_recipe_path %>
+<%= link_to "New recipe", new_recipe_history_recipe_path %> |
 
-<%= link_to "Show this recipe history", recipe_histories_path %>
+<%= link_to "Back to Culinary Chronicles!", recipe_histories_path %>
 <body>

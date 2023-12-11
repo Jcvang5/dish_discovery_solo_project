@@ -5,40 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= include_gon %>
-    <script src="<%= asset_path('api/api.js') %>"></script>
-    <style>#search-results{list-style-type: none;}</style>
-    
+    <script src="<%= asset_path('api/api.js') %>"></script>    
 </head>
 
 <body class="bodyBackground">
-    <header>
+    <header class="centered-content">
         <h1>WELCOME TO DISHCOVERY</h1>
         <p style="color: green"><%= notice %></p>
-        
     </header>
     <br>
     <main class="wrap">
         <section id="left-wrap">
             <article class="recipe-box" id="recipe-finder">
-                <form>
-                    <h2>ENTER YOUR INGREDIENTS</h2>
-                    <input type="text" class="recipe-box_field ingredient-input" placeholder="First Ingredient" id="form1" />
-                    <input type="text" class="recipe-box_field ingredient-input" placeholder="Second Ingredient" id="form2" />
-                    <input type="text" class="recipe-box_field ingredient-input" placeholder="Third Ingredient" id="form3" />
-                    <div class="modal" id="myModal">
-                        <div class="modal-content">
-                            <div id="modal-body"></div>
+                <div class="centered-content">
+                    <form>
+                        <h2>ENTER YOUR INGREDIENTS</h2>
+                        <input type="text" class="recipe-box_field ingredient-input" placeholder="First Ingredient" id="form1" />
+                        <input type="text" class="recipe-box_field ingredient-input" placeholder="Second Ingredient" id="form2" />
+                        <input type="text" class="recipe-box_field ingredient-input" placeholder="Third Ingredient" id="form3" />
+                        <div class="modal" id="myModal">
+                            <div class="modal-content">
+                                <div id="modal-body"></div>
+                            </div>
                         </div>
-                    </div>
-                    <button class="btn btn-secondary" id="searchBtn">Search</button>
-                </form>
+                        <button class="btn btn-dark" id="searchBtn">Search</button>
+                    </form>
+                </div>
             </article>
         </section>
 
         <section id="right-wrap">
             <article>
                 <ul id="search-results"></ul>
-            </article>         
+            </article>
         </section>
     </main>
 </body>

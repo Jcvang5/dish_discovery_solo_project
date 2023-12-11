@@ -2,7 +2,7 @@
 <head><%= stylesheet_link_tag 'style' %></head>
 <body class="bodyBackground">
 <div>
-  <h2><%= "Recipe History" %></h2>
+  <h2><%= "Culinary Chronicles" %></h2>
   
   <% @recipe_history.recipes.each do |recipe| %>
     <div class ="recipeBorder">
@@ -11,12 +11,12 @@
       <p><strong>Instructions:</strong> <%= recipe.instructions %></p>
 
       <%= link_to "Edit this recipe", edit_recipe_history_recipe_path(@recipe_history, recipe) %> |
-      <%= button_to "Delete this recipe", [@recipe_history, recipe], method: :delete %>
+      <%= link_to "Delete this recipe", [@recipe_history, recipe], method: :delete %>
     </div>
   <% end %>
 
 
-  <%= link_to "Back to recipe history", recipe_histories_path %>
+  <%= link_to "Back to Culinary Chronicles", recipe_histories_path %>
   
 </div>
 <body>
