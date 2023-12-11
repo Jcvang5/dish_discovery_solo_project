@@ -1,0 +1,10 @@
+.recipeBorder {
+    border: 2px solid forestgreen; 
+    padding: 10px; 
+    border-radius: 10px;
+    margin-bottom: 10px
+}
+
+.bodyBackground {
+    background-color: #E6EBF5;
+}

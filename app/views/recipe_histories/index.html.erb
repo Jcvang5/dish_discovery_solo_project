@@ -1,14 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Recipe histories</h1>
-
+<h1>Recipe History</h1>
+<body class="bodyBackground">
 <div id="recipe_histories">
   <% @recipe_histories.each do |recipe_history| %>
-    <%= render recipe_history %>
+    
     <p>
       <%= link_to "Show this recipe history", recipe_history %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New recipe history", new_recipe_history_path %>
+</body>

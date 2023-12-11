@@ -1,9 +1,46 @@
-<h1>WELCOME TO DISHDISCOVERY</h1>
-<% if user_signed_in?%>
-  <div> 🍔 
-    Welcome, <%= current_user.username%>! </div>
-  <%=button_to "Sign out", destroy_user_session_path, method: :delete%>
+<!DOCTYPE html>
+<html lang="en">
 
-<% else %>
-  <%= button_to "Sign in", new_user_session_path%>
-<% end %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= include_gon %>
+    <script src="<%= asset_path('api/api.js') %>"></script>
+    <style>#search-results{list-style-type: none;}</style>
+    
+</head>
+
+<body class="bodyBackground">
+    <header>
+        <h1>WELCOME TO DISHCOVERY</h1>
+        <p style="color: green"><%= notice %></p>
+        
+    </header>
+    <br>
+    <main class="wrap">
+        <section id="left-wrap">
+            <article class="recipe-box" id="recipe-finder">
+                <form>
+                    <h2>ENTER YOUR INGREDIENTS</h2>
+                    <input type="text" class="recipe-box_field ingredient-input" placeholder="First Ingredient" id="form1" />
+                    <input type="text" class="recipe-box_field ingredient-input" placeholder="Second Ingredient" id="form2" />
+                    <input type="text" class="recipe-box_field ingredient-input" placeholder="Third Ingredient" id="form3" />
+                    <div class="modal" id="myModal">
+                        <div class="modal-content">
+                            <div id="modal-body"></div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" id="searchBtn">Search</button>
+                </form>
+            </article>
+        </section>
+
+        <section id="right-wrap">
+            <article>
+                <ul id="search-results"></ul>
+            </article>         
+        </section>
+    </main>
+</body>
+
+</html>
