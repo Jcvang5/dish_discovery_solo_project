@@ -10,8 +10,8 @@
       <p><strong>Ingredients:</strong> <%= recipe.ingredients %></p>
       <p><strong>Instructions:</strong> <%= recipe.instructions %></p>
 
-      <%= link_to "Edit this recipe", edit_recipe_history_recipe_path(@recipe_history, recipe) %> |
-      <%= link_to "Delete this recipe", [@recipe_history, recipe], method: :delete %>
+      <%= link_to "Edit this recipe", edit_recipe_history_recipe_path(@recipe_history, recipe) %> 
+    
     </div>
   <% end %>
 
