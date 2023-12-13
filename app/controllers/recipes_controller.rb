@@ -50,12 +50,12 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    set_recipe_history
+    @recipe = @recipe_history.recipes.find(params[:id])
     @recipe.destroy!
-
+  
     respond_to do |format|
-      format.html do
-        redirect_to recipe_history_recipes_path(@recipe_history, @recipe), notice: 'Recipe was successfully deleted.'
-      end
+      format.html { redirect_to recipe_history_recipes_path(@recipe_history), notice: 'Recipe was successfully deleted.' }
       format.json { head :no_content }
     end
   end
