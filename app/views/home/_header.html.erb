@@ -9,14 +9,5 @@
     <%= link_to 'Profile', edit_user_registration_path, class:"head" %>
   <% end %>
 
-  <div style="text-align: right; color: white;">
-  <% if user_signed_in? %>
-    <div style="display: flex; align-items: center;">
-      <div style="margin-right: 10px;">🍔 Welcome, <%= current_user.username %>!</div>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
-    </div>
-  <% else %>
-    <%= button_to "Sign in", new_user_session_path, class: "btn btn-light" %>
-  <% end %>
 </div>
 </div>

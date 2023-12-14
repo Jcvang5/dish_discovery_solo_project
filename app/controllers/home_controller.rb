@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   def set_gon_variables
     gon.env_variables = {
-      SPOONACULAR_API_KEY: ENV['SPOONACULAR_API_KEY'],
+      SPOONACULAR_API_KEY: ENV['SPOONACULAR_API_KEY']
     }
   end
 end
