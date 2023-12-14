@@ -1,6 +1,7 @@
+<head><%= stylesheet_link_tag 'style' %></head>
 <body class="bodyBackground">
 <h1>Culinary Chronicles</h1>
-<head><%= stylesheet_link_tag 'style' %></head>
+<p style="color: green"><%= notice %></p>
 <div id="recipes">
   <% @recipes.each do |recipe| %>
     <div class ="recipeBorder">
