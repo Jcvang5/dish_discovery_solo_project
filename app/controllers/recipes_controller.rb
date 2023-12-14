@@ -53,9 +53,11 @@ class RecipesController < ApplicationController
     set_recipe_history
     @recipe = @recipe_history.recipes.find(params[:id])
     @recipe.destroy!
-  
+
     respond_to do |format|
-      format.html { redirect_to recipe_history_recipes_path(@recipe_history), notice: 'Recipe was successfully deleted.' }
+      format.html do
+        redirect_to recipe_history_recipes_path(@recipe_history), notice: 'Recipe was successfully deleted.'
+      end
       format.json { head :no_content }
     end
   end
