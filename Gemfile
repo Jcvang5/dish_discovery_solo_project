@@ -75,6 +75,6 @@ gem 'devise', '~> 4.9'
 
 # Gemfile
 
-gem 'dotenv-rails', groups: %i[development test]
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 gem 'gon'
